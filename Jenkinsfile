@@ -17,7 +17,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building Docker image...'
-                bat 'docker build -t my-node-app:latest .'
+                bat 'docker build -t my-node-app:latest'
             }
         }
 
