@@ -17,21 +17,21 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building Docker image...'
-                sh 'docker build -t my-node-app:latest .'
+                bat 'docker build -t my-node-app:latest .'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Checking Node.js application...'
-                sh 'docker run --rm my-node-app:latest npm test'
+                bat 'docker run --rm my-node-app:latest npm test'
             }
         }
 
         stage('Deploy') {
             steps {
                 echo 'Deploying application...'
-                sh '''
+                bat '''
                     docker rm -f my-node-app || true
                     docker run -d \
                       --name my-node-app \
